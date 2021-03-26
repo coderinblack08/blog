@@ -7,17 +7,27 @@ import { format } from "date-fns";
 import renderToString from "next-mdx-remote/render-to-string";
 import { MdxRemote } from "next-mdx-remote/types";
 import hydrate from "next-mdx-remote/hydrate";
+import Link from "next/link";
+import { components } from "../lib/components";
 
 const Post: NextPage<{
   source: MdxRemote.Source;
   data: { [key: string]: any };
 }> = ({ source, data }) => {
-  const content = hydrate(source, {});
+  const content = hydrate(source, { components });
 
   return (
     <div className="max-w-prose mx-auto py-20">
-      <h1 className="text-4xl mb-5">{data.title}</h1>
-      {content}
+      <time className="font-nanum text-sm text-gray-600 mb-2 inline-block">
+        {data.date}
+      </time>
+      <h1 className="text-4xl mb-8">{data.title}</h1>
+      <article className="prose">{content}</article>
+      <Link href="/">
+        <a className="inline-block text-lg text-yellow-500 hover:underline mt-5">
+          Return Home
+        </a>
+      </Link>
     </div>
   );
 };
@@ -37,7 +47,7 @@ export const getStaticProps: GetStaticProps = async ({ params: { slug } }) => {
 
   data.date = format(new Date(data.date), "MMMM dd, yyyy");
 
-  const source = await renderToString(content, { scope: data });
+  const source = await renderToString(content, { components, scope: data });
 
   return {
     props: { data, source },

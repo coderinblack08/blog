@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
 @import url("https://use.typekit.net/kwh6rch.css");
 
 @tailwind base;
@@ -6,11 +6,8 @@
 @tailwind utilities;
 
 @layer base {
-  p,
-  span,
-  div,
-  a {
-    @apply font-sans;
+  body {
+    @apply bg-yellow-50 border-t-8 border-yellow-400;
   }
   h1,
   h2,

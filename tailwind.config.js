@@ -3,8 +3,15 @@ module.exports = {
   darkMode: false,
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            pre: null,
+          },
+        },
+      },
       fontFamily: {
-        nanum: ["Nanum Pen Script", "cursive"],
+        nanum: ["Nanum Gothic", "cursive"],
         peachy: [
           "peachy-keen-jf",
           "ui-sans-serif",
@@ -21,5 +28,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
