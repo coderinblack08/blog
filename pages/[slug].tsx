@@ -1,13 +1,12 @@
-import React from "react";
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import { format } from "date-fns";
+import fs from "fs";
+import matter from "gray-matter";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
 import { MdxRemote } from "next-mdx-remote/types";
-import hydrate from "next-mdx-remote/hydrate";
-import Link from "next/link";
+import path from "path";
+import React from "react";
 import { components } from "../lib/components";
 
 const Post: NextPage<{
@@ -17,17 +16,12 @@ const Post: NextPage<{
   const content = hydrate(source, { components });
 
   return (
-    <div className="max-w-prose mx-auto py-20">
-      <time className="font-nanum text-sm text-gray-600 mb-2 inline-block">
+    <div className="max-w-prose mx-auto py-16 px-5">
+      <time className="font-nanum text-sm text-gray-600 dark:text-gray-300 mb-2 inline-block">
         {data.date}
       </time>
       <h1 className="text-4xl mb-8">{data.title}</h1>
-      <article className="prose">{content}</article>
-      <Link href="/">
-        <a className="inline-block text-lg text-yellow-500 hover:underline mt-5">
-          Return Home
-        </a>
-      </Link>
+      <article className="prose dark:prose-dark">{content}</article>
     </div>
   );
 };

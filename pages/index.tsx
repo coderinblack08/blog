@@ -8,24 +8,26 @@ import Link from "next/link";
 
 const Index: NextPage<{ posts: any }> = ({ posts }) => {
   return (
-    <div className="max-w-3xl mx-auto py-20">
+    <div className="max-w-prose mx-auto py-10 md:py-20 px-5">
       <h1 className="font-peachy text-5xl text-center my-5">
         Aloha, I'm <span className="font-peachy text-yellow-500">Kevin</span>
       </h1>
-      <p className="font-nanum text-lg text-gray-800 text-center leading-relaxed">
+      <p className="font-nanum text-gray-800 dark:text-gray-300 text-center leading-relaxed">
         Developers are strange animals, aren't they? My favorite stack is
         Typescript, React, GraphQL (or REST), Postgres, and Redis. I might throw
-        in Elixir or Golang soon 👀 😦
+        in Elixir or Golang soon 👀
       </p>
-      <div className="mt-12 space-y-8">
+      <div className="mt-20 space-y-8">
         {posts.map((post) => (
           <Link href="/[slug]" as={`/${post.slug}`}>
             <a className="block">
-              <time className="font-nanum text-sm text-gray-600">
+              <time className="font-nanum text-sm text-gray-600 dark:text-gray-400">
                 {post.date}
               </time>
               <h2 className="font-sans text-2xl font-bold">{post.title}</h2>
-              <p className="text-gray-600 mt-1 max-w-xl">{post.description}</p>
+              <p className="text-gray-600 dark:text-gray-300 mt-1 max-w-xl">
+                {post.description}
+              </p>
             </a>
           </Link>
         ))}

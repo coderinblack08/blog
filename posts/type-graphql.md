@@ -1,12 +1,12 @@
 ---
 title: "Using GraphQL with Typescript"
-date: "2021-3-26"
+date: "2021-3-25"
 description: "Integrating GraphQL with Typescript in the frontend and backend."
 ---
 
-For my project [Contest Pug](https://github.com/coderinblack08/contest-pug-2), I used [Type GraphQL](https://typegraphql.com/) and [GraphQL Codegen](https://www.graphql-code-generator.com/) to "generate" types for my GraphQL schemas on both the backend and frontend.
+For my project [Contest Pug](https://github.com/coderinblack08/contest-pug-2), I used [Type GraphQL](https://typegraphql.com/) and [GraphQL Codegen](https://www.graphql-code-generator.com/) to "generate" types for my GraphQL schemas on both the backend and frontend. 
 
-Type-graphql is awesome because it uses a code-first approach with decorators. Also, it fits super duper well with typeorm, my orm of choice. Here is an example of a resolver:
+Type-graphql is awesome because it uses a code-first approach with decorators. Also, it fits super duper well with TypeORM, my orm of choice. Here is an example of a resolver:
 
 ```ts
 import { Resolver, Query } from "type-graphql";
@@ -20,7 +20,7 @@ export class Hello {
 }
 ```
 
-And here is an example of a schema with typeorm & type graphql:
+And here is an example of a schema with TypeORM & type graphql:
 
 ```ts
 import { Column } from "typeorm";
@@ -101,3 +101,6 @@ return (
 ```
 
 That's it folks! Checkout the contest pug repo if you want to see an example of both technologies! Peace ✌️ .
+
+P.S. If you aren't using GraphQL, **you're missing out big time**.
+
