@@ -57,7 +57,6 @@ module.exports = {
             },
             pre: {
               color: theme("colors.gray.200"),
-              backgroundColor: theme("colors.gray.800"),
             },
             thead: {
               color: theme("colors.white"),
@@ -70,7 +69,6 @@ module.exports = {
         },
       }),
       fontFamily: {
-        nanum: ["Nanum Gothic", "cursive"],
         peachy: [
           "peachy-keen-jf",
           "ui-sans-serif",

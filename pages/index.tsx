@@ -5,25 +5,29 @@ import path from "path";
 import matter from "gray-matter";
 import { format } from "date-fns";
 import Link from "next/link";
+import { ViewCounter } from "../components/ViewCounter";
 
 const Index: NextPage<{ posts: any }> = ({ posts }) => {
   return (
-    <div className="max-w-prose mx-auto py-10 md:py-20 px-5">
-      <h1 className="font-peachy text-5xl text-center my-5">
-        Aloha, I'm <span className="font-peachy text-yellow-500">Kevin</span>
+    <div className="max-w-prose mx-auto py-10 md:py-12 px-5">
+      <h1 className="font-peachy font-extrabold text-5xl text-center my-5">
+        Aloha, I'm <span className="text-yellow-500">Kevin</span>
       </h1>
-      <p className="font-nanum text-gray-800 dark:text-gray-300 text-center leading-relaxed">
+      <p className="text-gray-800 dark:text-gray-300 text-center leading-relaxed">
         Developers are strange animals, aren't they? My favorite stack is
         Typescript, React, GraphQL (or REST), Postgres, and Redis. I might throw
         in Elixir or Golang soon 👀
       </p>
       <div className="mt-20 space-y-8">
         {posts.map((post) => (
-          <Link href="/[slug]" as={`/${post.slug}`}>
+          <Link href="/[slug]" as={`/${post.slug}`} key={post.slug}>
             <a className="block">
-              <time className="font-nanum text-sm text-gray-600 dark:text-gray-400">
-                {post.date}
-              </time>
+              <div className="flex items-center space-x-3">
+                <time className="text-sm text-gray-600 dark:text-gray-400">
+                  {post.date}
+                </time>
+                <ViewCounter slug={post.slug} />
+              </div>
               <h2 className="font-sans text-2xl font-bold">{post.title}</h2>
               <p className="text-gray-600 dark:text-gray-300 mt-1 max-w-xl">
                 {post.description}

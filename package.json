@@ -8,19 +8,23 @@
     "start": "next start"
   },
   "dependencies": {
+    "comma-number": "^2.0.1",
     "date-fns": "^2.19.0",
     "gray-matter": "^4.0.2",
+    "ioredis": "^4.24.4",
     "next": "10.0.9",
     "next-mdx-remote": "^2.1.3",
     "next-remote-watch": "git://github.com/hashicorp/next-remote-watch.git",
     "next-themes": "^0.0.14",
     "prism-react-renderer": "^1.2.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "swr": "^0.5.4"
   },
   "devDependencies": {
     "@tailwindcss/jit": "^0.1.10",
     "@tailwindcss/typography": "^0.4.0",
+    "@types/ioredis": "^4.22.1",
     "@types/node": "^14.14.36",
     "@types/react": "^17.0.3",
     "autoprefixer": "^10.2.5",
