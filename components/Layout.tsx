@@ -15,6 +15,8 @@ export const Layout: React.FC = ({ children }) => {
         openGraph={{
           url: `https://coderinblack.now.sh/${router.asPath}`,
           title: "Coderinblack",
+          locale: "en_IE",
+          type: "website",
           description: "My slice of the internet 🍰",
           site_name: "Coderinblack",
           images: [
@@ -28,6 +30,7 @@ export const Layout: React.FC = ({ children }) => {
         }}
         twitter={{
           handle: "@coderinblack",
+          site: "@coderinblack",
           cardType: "summary_large_image",
         }}
       />

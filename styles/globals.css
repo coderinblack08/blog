@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply bg-yellow-50 dark:bg-gray-900;
+    @apply bg-yellow-50 dark:bg-gray-900 text-black dark:text-white;
   }
 
   ::selection {

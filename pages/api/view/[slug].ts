@@ -7,7 +7,7 @@ const view = async (req: NextApiRequest, res: NextApiResponse) => {
   const { slug } = req.query;
 
   const slugs = fs.readdirSync(path.join(process.cwd(), "posts"));
-  if (slugs.filter((file) => file.replace(".md", "") === slug).length > 0) {
+  if (slugs.filter((file) => file.replace(".mdx", "") === slug).length > 0) {
     const key = `views:${slug}`;
     await redis.incr(key);
     return res.status(200).send("success");

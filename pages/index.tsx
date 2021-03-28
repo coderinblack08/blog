@@ -14,7 +14,7 @@ const Index: NextPage<{ posts: any }> = ({ posts }) => {
       <div className="flex flex-col items-center">
         <div className="hidden md:block mb-8">
           <Image
-            src="/hand.png"
+            src="/static/hand.png"
             alt="Hand Illustration"
             width={1897 * 0.25}
             height={1017 * 0.25}
@@ -58,7 +58,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const postData: any[] = fileNames.map((file) => {
     const { data } = matter(fs.readFileSync(path.join("posts", file), "utf-8"));
     data.date = format(new Date(data.date), "MMMM dd, yyyy");
-    return { slug: file.replace(".md", ""), ...data };
+    return { slug: file.replace(".mdx", ""), ...data };
   });
 
   return {

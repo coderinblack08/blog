@@ -48,13 +48,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const files = fs.readdirSync("posts");
 
   return {
-    paths: files.map((file) => ({ params: { slug: file.replace(".md", "") } })),
+    paths: files.map((file) => ({
+      params: { slug: file.replace(".mdx", "") },
+    })),
     fallback: false,
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params: { slug } }) => {
-  const markdown = fs.readFileSync(path.join("posts", slug + ".md"), "utf-8");
+  const markdown = fs.readFileSync(path.join("posts", slug + ".mdx"), "utf-8");
   const { content, data } = matter(markdown);
 
   data.date = format(new Date(data.date), "MMMM dd, yyyy");

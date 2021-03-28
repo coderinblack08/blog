@@ -1,0 +1,208 @@
+---
+title: "My VSCode Setup"
+description: "My VSCode Themes, snippets, and extensions."
+date: "2021-3-28"
+---
+
+<Image src="/static/vscode.png" width={720} height={610} priority />
+
+Let's first talk about my VSCode theme. I use Ayu Mirage with some minor color customizations (check settings.json). I would also recommend Gruvbox Material if you're interested in a lighter dark theme.
+
+## Extensions
+
+I'll try to cover the most important extensions that I have (the ones in bold are the ones I use most frequently).
+
+- Intellisense-ish
+  - **Tailwind CSS Intellisense**
+  - C/C++
+  - Dart
+  - Flutter
+  - Docker
+  - ElixirLS
+  - **ESLint**
+  - **Prettier**
+  - **GraphQL for VSCode**
+  - **Auto Rename Tag**
+  - **Auto Close Tag**
+  - Latex Workshop
+  - MDX
+  - **Tabnine** (I just starting using it 🤷‍♂️, it's pretty decent)
+- Others
+  - Live share
+  - VSinder & Stories (**@benawad**)
+  - **Bracket Pair Colorizer**
+
+## Settings.json
+
+My settings.json is a mess. The most important parts include the color customizations and vim keybindings.
+
+```json
+{
+  "smoothtype.duration": 80,
+  "smoothtype.autoReload": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "[latex]": {
+    "editor.formatOnSave": false,
+    "editor.suggestSelection": "recentlyUsedByPrefix"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.tabSize": 2,
+  "code-runner.runInTerminal": true,
+  "terminal.explorerKind": "external",
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[cpp]": {
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.wordWrap": "bounded",
+    "editor.quickSuggestions": false
+  },
+  "liveServer.settings.donotShowInfoMsg": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+  "auto-close-tag.activationOnLanguage": [
+    "html",
+    "xml",
+    "javascript",
+    "javascriptreact",
+    "typescriptreact"
+  ],
+  "python.formatting.provider": "yapf",
+  "prettier.singleQuote": false,
+  "extensions.ignoreRecommendations": true,
+  "terminal.integrated.shell.osx": "/usr/local/bin/fish",
+  "git.ignoreMissingGitWarning": true,
+  "vetur.experimental.templateInterpolationService": true,
+  "leetcode.workspaceFolder": "/Users/kevin/Desktop/code/cp/leetcode",
+  "leetcode.hint.commandShortcut": false,
+  "leetcode.hint.configWebviewMarkdown": false,
+  "leetcode.hint.commentDescription": false,
+  "editor.renderWhitespace": "none",
+  "leetcode.defaultLanguage": "cpp",
+  "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 2, ColumnLimit: 0}",
+  "terminal.integrated.fontSize": 19,
+  "terminal.integrated.fontWeightBold": "normal",
+  "editor.fontFamily": "'SF Mono', Menlo, Monaco, 'Courier New', monospace",
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<esc>"]
+    }
+  ],
+  "workbench.colorCustomizations": {
+    "[Gruvbox Material Dark]": {
+      "editor.background": "#312f2e",
+      "tab.activeBackground": "#312f2e",
+      "tab.activeBorder": "#312f2e",
+      "terminal.background": "#312f2e"
+    },
+    "[Ayu Mirage]": {
+      "editor.background": "#232834",
+      "statusBar.background": "#ffcc66",
+      "statusBarItem.activeBackground": "#d8ad57",
+      "statusBarItem.hoverBackground": "#d8ad57",
+      "statusBar.foreground": "#232834",
+      "list.errorForeground": "#60a4ad",
+      "list.warningForeground": "#00d9ff",
+      "gitDecoration.untrackedResourceForeground": "#60a4ad",
+      "focusBorder": "#232834"
+    }
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.formatOnSave": false
+  },
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.overviewRulerBorder": false,
+  "breadcrumbs.enabled": false,
+  "workbench.editor.showTabs": true,
+  "workbench.sideBar.location": "left",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "tailwindCSS.emmetCompletions": true,
+  "editor.lineNumbers": "off",
+  "editor.renderIndentGuides": false,
+  // "workbench.statusbar.visible": false,
+  "scm.diffdecorations": "overview",
+  "[jsonc]": {
+    "editor.defaultformatter": "esbenp.prettier-vscode"
+  },
+  "editor.minimap.enabled": false,
+  "[json]": {
+    "editor.defaultformatter": "esbenp.prettier-vscode"
+  },
+  "workbench.icontheme": null,
+  "cspell.userwords": [
+    "coderinblack",
+    "Edsger",
+    "Prismic",
+    "USACO",
+    "coefiffficeint",
+    "firestore",
+    "frontmatter",
+    "gradebook",
+    "nessicarily",
+    "postgres",
+    "semibold"
+  ],
+  "vim.handleKeys": {
+    "<C-c>": true,
+    "<C-d>": true,
+    "<A-Up>": false,
+    "<A-Down>": false,
+    "<C-S-l>": true,
+    "<A-S-Up>": false,
+    "<A-S-Down>": false
+  },
+  "dart.flutterSdkPath": "/Users/kevin/flutter",
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [80],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false
+  },
+  "files.exclude": {
+    "**/node_modules/**": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "vim.statusBarColorControl": false,
+  "latex-workshop.message.update.show": false,
+  "latex-workshop.view.pdf.viewer": "tab",
+  "python.pythonPath": "/usr/local/bin/python3",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "cSpell.enableFiletypes": ["mdx"],
+  "todo-tree.tree.showScanModeButton": false,
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
+  "workbench.iconTheme": null,
+  "cSpell.userWords": ["Postgres", "autoincrementing", "coderinblack"],
+  "editor.fontSize": 18,
+  "workbench.colorTheme": "Ayu Mirage",
+  "workbench.activityBar.visible": false,
+  "tabnine.experimentalAutoImports": true
+}
+```
