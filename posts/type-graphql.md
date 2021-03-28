@@ -6,7 +6,7 @@ description: "Integrating GraphQL with Typescript in the frontend and backend."
 
 For my project [Contest Pug](https://github.com/coderinblack08/contest-pug-2), I used [Type GraphQL](https://typegraphql.com/) and [GraphQL Codegen](https://www.graphql-code-generator.com/) to "generate" types for my GraphQL schemas on both the backend and frontend. 
 
-Type-graphql is awesome because it uses a code-first approach with decorators. Also, it fits super duper well with TypeORM, my orm of choice. Here is an example of a resolver:
+Type-graphql is awesome because it uses a code-first approach with decorators. Also, it fits super duper well with TypeORM. Here is an example of a resolver:
 
 ```ts
 import { Resolver, Query } from "type-graphql";
@@ -68,14 +68,14 @@ export class UserResolver {
 
 Type-graphql is amazing. It seamlessly integrates with TypeORM and also allows us to write **DRY code**.
 
-Let's move on to graphql codegen. If we run the following commands
+Let's move on to graphql codegen. Simply run the following commands
 
 ```bash
 yarn add -D @graphql-codegen/cli
 yarn graphql-codegen init
 ```
 
-Fill out the questionnaire provided by the cli. Inside the `codegen.yml` file should contain your config with the plugins for apollo. You can switch this out for urql if you're using that.
+Inside the `codegen.yml` file, you should see your config with the plugins for Apollo. You can switch this out for URQL if you want.
 
 ```yml
 overwrite: true
@@ -100,7 +100,4 @@ return (
 );
 ```
 
-That's it folks! Checkout the contest pug repo if you want to see an example of both technologies! Peace ✌️ .
-
-P.S. If you aren't using GraphQL, **you're missing out big time**.
-
+That's it folks! Checkout the Contest Pug repo if you want to see an example of both technologies! **Peace ✌️** .

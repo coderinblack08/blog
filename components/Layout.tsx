@@ -7,20 +7,25 @@ export const Layout: React.FC = ({ children }) => {
 
   return (
     <>
-      <div className="sticky top-0 border-t-8 border-yellow-400">
+      <div className="sticky z-50 top-0 border-t-8 border-yellow-400">
+        <a href="#content" className="sr-only focus:not-sr-only">
+          Skip to content
+        </a>
         <nav
-          className="bg-yellow-50 bg-opacity-95 dark:bg-gray-900 max-w-prose mx-auto py-5 md:py-8 flex justify-between items-center px-5"
+          className="bg-yellow-50 bg-opacity-90 dark:bg-opacity-80 dark:bg-gray-900 max-w-prose mx-auto py-5 md:py-8 flex justify-between items-center px-5"
           style={{ opacity: 5, backdropFilter: "blur(3px)" }}
         >
-          <Link href="/">
-            <a className="font-bold text-2xl">
-              <span className="bg-gradient-to-b from-yellow-400 to-yellow-500 bg-clip-text text-transparent">
-                Coderin
-              </span>
-              black
-            </a>
-          </Link>
-          <ul className="flex items-center space-x-8 text-gray-700 dark:text-gray-200">
+          <div className="hidden sm:block">
+            <Link href="/">
+              <a className="font-bold text-2xl">
+                <span className="bg-gradient-to-b from-yellow-400 to-yellow-500 bg-clip-text text-transparent">
+                  Coderin
+                </span>
+                black
+              </a>
+            </Link>
+          </div>
+          <ul className="flex items-center text-sm sm:text-base space-x-6 sm:space-x-8 text-gray-700 dark:text-gray-200">
             <li>
               <a href="https://github.com/coderinblack08">GitHub</a>
             </li>
@@ -60,7 +65,7 @@ export const Layout: React.FC = ({ children }) => {
           </ul>
         </nav>
       </div>
-      {children}
+      <div id="content">{children}</div>
     </>
   );
 };

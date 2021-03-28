@@ -4,7 +4,7 @@ date: "2021-3-25"
 description: "What's Popping Y'all 🍾!"
 ---
 
-Hello folks! I hope this blog will active... 👀 . Anyways, look out for nerdy algorithm posts and software stuff. Peace ✌️!
+Hello folks! I hope this blog will active... 👀 . Anyways, look out for nerdy algorithm posts and software stuff. ** Peace ✌**️!
 
 ```ts
 import React from "react";

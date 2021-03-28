@@ -10,6 +10,6 @@
   }
 
   ::selection {
-    @apply bg-yellow-500 text-white;
+    @apply bg-yellow-300 dark:bg-yellow-500 text-white;
   }
 }
