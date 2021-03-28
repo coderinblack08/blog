@@ -9,6 +9,8 @@ import path from "path";
 import React, { useEffect } from "react";
 import { ViewCounter } from "../components/ViewCounter";
 import { components } from "../lib/components";
+import { SEO } from "../components/SEO";
+import { BlogJsonLd } from "next-seo";
 
 const Post: NextPage<{
   slug: string;
@@ -27,16 +29,18 @@ const Post: NextPage<{
   }, []);
 
   return (
-    <div className="max-w-prose mx-auto py-16 px-5">
-      <div className="flex items-center space-x-3 mb-3">
-        <time className="text-sm text-gray-600 dark:text-gray-300 inline-block">
-          {data.date}
-        </time>
-        <ViewCounter slug={slug} />
+    <SEO title={data.title} description={data.description} date={data.date}>
+      <div className="max-w-prose mx-auto py-16 px-5">
+        <div className="flex items-center space-x-3 mb-3">
+          <time className="text-sm text-gray-600 dark:text-gray-300 inline-block">
+            {data.date}
+          </time>
+          <ViewCounter slug={slug} />
+        </div>
+        <h1 className="font-sans font-bold text-4xl mb-8">{data.title}</h1>
+        <article className="prose dark:prose-dark">{content}</article>
       </div>
-      <h1 className="font-sans font-bold text-4xl mb-8">{data.title}</h1>
-      <article className="prose dark:prose-dark">{content}</article>
-    </div>
+    </SEO>
   );
 };
 

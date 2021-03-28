@@ -1,11 +1,11 @@
-import { format } from "date-fns";
-import fs from "fs";
-import matter from "gray-matter";
 import { GetStaticProps, NextPage } from "next";
+import React from "react";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { format } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
-import path from "path";
-import React from "react";
 import { ViewCounter } from "../components/ViewCounter";
 
 const Index: NextPage<{ posts: any }> = ({ posts }) => {
