@@ -1,0 +1,35 @@
+---
+title: "Learn Rust"
+description: "I've started playing around with Rust!"
+date: "2021-4-4"
+---
+
+Sorry about not posting in a while! For the past week, I've been trying out Elixir. The syntax is great, but I really didn't think it was something I would enjoy use. I love tinkering with new languages/frameworks so I started learning Rust today (yes today, today)! Here's where I'm at so far:
+
+- Learned Cargo & Stuff
+- Variables and Mutability
+- Functions
+- For, Loop, & While
+- If-else, match, etc.
+- Stack, Heap, Scope, & Ownership/Borrowing/References
+
+Rust is super interesting because of its low-level system language abilities and its modern syntax. It makes sure you are being safe with memory and defaults variables and references to be immutable. Like Elixir, Rust doesn't have a return keyword and has the `1..4` syntax to create a range (I love it).
+
+Allocation on the heap in Rust is different then C++...but in a good way.
+For example, if we wanted to allocate a dynamic `String`, we could easily do the following.
+
+```rust
+fn main() {
+  let mut s = String::from("Hello");
+  mutate(&mut s);
+  println!("{}", s);
+} // s automatically gets destroyed after its scope "ends"!
+
+fn mutate(s: &mut String) {
+  s.push_str(" World!");
+}
+```
+
+Rust automatically destroys the allocated memory based on scope. Rust makes us super duper safe by making sure we don't combine both a mutable and immutable reference together, create two mutable references, and etc.
+
+Overall, I'm super pumped about Rust and am planing on using it in my backend (possibly with Actix Web, mainly because I want to see that speed 🚀)! Anyways, I've leave more updates soon. **Peace ✌️**.
