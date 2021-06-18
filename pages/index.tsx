@@ -47,7 +47,12 @@ const Home: React.FC<{ posts: { [key: string]: any }[] }> = ({ posts }) => {
         </header>
         <main>
           {posts.map((post) => (
-            <Link href="/[slug]" as={`/${post.slug}`} key={post.slug} passHref>
+            <Link
+              href="/post/[slug]"
+              as={`/post/${post.slug}`}
+              key={post.slug}
+              passHref
+            >
               <a className="block py-8 border-t border-gray-700/50">
                 <div className="flex space-x-12">
                   <p className="text-gray-300">

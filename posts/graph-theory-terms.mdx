@@ -1,0 +1,35 @@
+---
+title: "Graph Theory — Graphs, Terms, and Platonic Solids"
+date: "2021-6-18"
+category: Math
+description: "Basic Graph Theory terms and problems"
+---
+
+<img
+  src="/static/graph-theory-terms/graph-1.png"
+  className="w-24 float-left mr-10"
+/>
+
+<div className="text-justify">
+  Graphs are a collection of points which are bounded by lines. We call the
+  points of a graph, <strong>vertices</strong>, and the lines,{" "}
+  <strong>edges</strong>.
+</div>
+
+A **complete graph** or **clique** is a graph in which every pair of vertices is connected by an edge. Complete graphs are denoted by $K_n$ where $n$ is the total number of vertices. The total number of edges in a complete graph is $\binom{n}{2}$.
+
+The opposite of a complete graph is a **null graph/independent set**. A null graph is a set of vertices with no edges between themselves.
+
+A component or graph is **connected** if any pair of vertices are connected by a path (of multiple vertices). We are assuming the graph is undirected.
+
+A graph is **planar** if it can be drawn in one plane with no intersecting edges. We can define faces of a planar graph. Notice the area outside the graph is also a face, called the unbounded face. For example, $K_4$ has $4$ faces.
+
+Let's try to prove that $K_5$ is not planar. Four of the vertices can be formed into a square ($K_4$ is planar). The fifth vertex can be inside the square or out. Either way, an intersection of edges occur. Thus, $K_5$ is not planar.
+
+Euler's formula
+
+$$
+V-E+F=2
+$$
+
+can be applied to planar graphs. A proof can be derived using induction.
