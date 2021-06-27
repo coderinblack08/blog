@@ -1,14 +1,18 @@
 @import url("https://rsms.me/inter/inter.css");
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    font-size: 14px;
+  }
+
   body,
   html,
   #__next {
-    @apply bg-gray-900 text-gray-100 antialiased font-medium;
+    @apply bg-gray-100 text-gray-800;
   }
 }

@@ -6,12 +6,16 @@ module.exports = {
   darkMode: false,
   theme: {
     fontFamily: {
-      sans: ["DM Sans", "sans-serif"],
+      sans: ["Inter", "sans-serif"],
+      display: ["Lora", "Georgia", "serif"],
     },
     colors: {
       white: "#FFFFFF",
-      gray: colors.trueGray,
-      yellow: "#F3BE52",
+      gray: colors.blueGray,
+      pink: colors.pink,
+      orange: colors.orange,
+      purple: colors.purple,
+      yellow: "#E3A008",
     },
     extend: {
       typography: (theme) => ({

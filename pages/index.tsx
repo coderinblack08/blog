@@ -1,95 +1,81 @@
-import React from "react";
-import Link from "next/link";
-import profilePicture from "../public/profile-picture.png";
 import Image from "next/image";
-import { GetStaticProps } from "next";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { format } from "date-fns";
+import React from "react";
+import { Artist } from "../components/Artist";
+import { Navbar } from "../components/Navbar";
+import paper from "../public/icons/paper.png";
+import play from "../public/icons/play.png";
+import wayv from "../public/wayv.jpeg";
+import wowkie from "../public/wowkie.jpeg";
 
-const Home: React.FC<{ posts: { [key: string]: any }[] }> = ({ posts }) => {
+const Home: React.FC = () => {
   return (
-    <div>
-      <div className="max-w-3xl mx-auto py-12 px-5">
-        <Image
-          src={profilePicture}
-          width={48}
-          height={48}
-          alt="Profile Picture"
-          className="rounded-xl"
-          placeholder="blur"
-        />
-        <header className="my-8">
-          <p className="text-yellow text-sm mb-1">Hello Guys, I&apos;m</p>
-          <h1 className="font-bold text-3xl">Kevin LooHoo</h1>
-          <p className="text-gray-400 mt-2">
-            Software developer and designer; Interested in competitive and
-            abstract mathematics.
-          </p>
-          <div className="flex items-center space-x-8 mt-6">
-            <button className="bg-yellow py-2 px-5 rounded-lg text-sm text-gray-900 font-bold">
-              <span className="mr-2 text-sm">📫</span> Contact
-            </button>
-            <a
-              href="https://github.com/coderinblack08"
-              className="text-gray-300 font-bold text-sm"
-            >
-              Github
-            </a>
-            <a
-              href="https://twitter.com/coderinblack"
-              className="text-gray-300 font-bold text-sm"
-            >
-              Twitter
-            </a>
+    <div className="max-w-5xl mx-auto px-8 pb-24">
+      <Navbar />
+      <header>
+        <h1 className="font-display leading-tight text-4xl sm:text-5xl sm:leading-tight md:text-6xl md:leading-tight font-bold mt-2">
+          Code. <br />
+          Math & Physics. <br />
+          Dreamer.
+        </h1>
+        <p className="text-gray-600 mt-6">
+          An idiot learning aloud about trending frameworks, languages, and
+          stuff I just learned.
+        </p>
+        <p className="font-semibold mt-2">
+          Powered by <span className="text-yellow">Presage</span> ·{" "}
+          <a
+            href="https://twitter.com/coderinblack"
+            className="hover:underline"
+          >
+            🐦 @coderinblack
+          </a>
+        </p>
+      </header>
+      <main className="relative mt-16">
+        <div>
+          <div className="inline-flex items-center justify-center p-2 rounded-xl bg-purple-200/75">
+            <Image src={paper} alt="Paper Icon" width={36} height={36} />
           </div>
-        </header>
-        <main>
-          {posts.map((post) => (
-            <Link
-              href="/post/[slug]"
-              as={`/post/${post.slug}`}
-              key={post.slug}
-              passHref
-            >
-              <a className="block py-8 border-t border-gray-700/50">
-                <div className="flex space-x-12">
-                  <p className="text-gray-300">
-                    <span className="font-bold text-gray-100">
-                      {post.category}
-                    </span>{" "}
-                    · {format(new Date(post.date), "MMMM, dd")}
-                  </p>
-                  <div>
-                    <h2 className="text-lg font-bold">{post.title}</h2>
-                    <p className="text-gray-500 mt-1">{post.description}</p>
-                  </div>
-                </div>
-              </a>
-            </Link>
-          ))}
-        </main>
-      </div>
+          <h2 className="font-display text-3xl font-bold mt-4">Blog Posts</h2>
+          <p className="text-gray-400 mt-2">
+            Coming Soon (After Presage Release)
+          </p>
+        </div>
+        {/* <aside className="absolute top-0 left-0 hidden lg:block origin-top-left rotate-90 -translate-x-8 text-gray-400 opacity-50">
+          <span className="text-gray-500 font-medium">Please read them,</span>{" "}
+          it would mean a lot
+        </aside> */}
+        <div className="mt-16">
+          <div className="inline-flex items-center justify-center p-2 rounded-xl bg-pink-200/75">
+            <Image src={play} alt="Play Icon" width={36} height={36} />
+          </div>
+          <h2 className="font-display text-3xl font-bold mt-4">
+            Music Obsessions
+          </h2>
+          <p className="text-gray-600 mt-2">
+            Don’t judge my taste in music lol
+          </p>
+          <div className="space-y-8 mt-8">
+            <Artist
+              name="大张伟 (Wowkie Zhang)"
+              src={wowkie}
+              social={{ name: "Weibo", url: "https://weibo.com/dazhangwei831" }}
+              spotify="https://open.spotify.com/artist/3RIgMUtdfRx98Lm5bXM3GD"
+            />
+            <Artist
+              name="NCT WayV"
+              src={wayv}
+              social={{
+                name: "Twitter",
+                url: "https://twitter.com/WayV_official",
+              }}
+              spotify="https://open.spotify.com/artist/1qBsABYUrxg9afpMtyoFKz"
+            />
+          </div>
+        </div>
+      </main>
     </div>
   );
-};
-
-export const getStaticProps: GetStaticProps = async () => {
-  const fileNames = fs.readdirSync("posts");
-  const postData: any[] = fileNames.map((file) => {
-    const { data } = matter(fs.readFileSync(path.join("posts", file), "utf-8"));
-    data.date = format(new Date(data.date), "MMMM dd, yyyy");
-    return { slug: file.replace(".mdx", ""), ...data };
-  });
-
-  return {
-    props: {
-      posts: postData.sort((a, b) =>
-        new Date(a.date) < new Date(b.date) ? 1 : -1
-      ),
-    },
-  };
 };
 
 export default Home;
