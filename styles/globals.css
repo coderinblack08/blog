@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer {
+  :root {
+    font-size: 14px;
+  }
+
+  html,
+  body {
+    background-color: theme("colors.gray.100");
+    color: theme("colors.gray.900");
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: "optimizeLegibility";
+
+    @apply text-base;
+
+    margin: 0;
+    padding: 0;
+    min-height: "100%";
+    position: "relative";
+    overflow-x: "hidden";
+  }
+}
