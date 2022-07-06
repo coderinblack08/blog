@@ -12,16 +12,121 @@
     background-color: theme("colors.gray.100");
     color: theme("colors.gray.900");
 
+    @apply text-base selection:bg-purple selection:text-gray-900;
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: "optimizeLegibility";
-
-    @apply text-base;
 
     margin: 0;
     padding: 0;
     min-height: "100%";
     position: "relative";
     overflow-x: "hidden";
+  }
+
+  .prose-lg .anchor {
+    visibility: hidden;
+    position: absolute;
+    margin-left: -0.8em;
+    padding-right: 0.5em;
+    width: 80%;
+    max-width: 720px;
+    cursor: pointer;
+  }
+
+  .prose-lg .anchor::after {
+    @apply text-gray-300;
+    content: "#";
+  }
+
+  .anchor:hover {
+    @apply visible;
+  }
+
+  .prose-lg *:hover > .anchor {
+    @apply visible;
+  }
+
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    @apply text-gray-700;
+  }
+
+  .token.punctuation {
+    @apply text-gray-700;
+  }
+
+  .token.property,
+  .token.tag,
+  .token.boolean,
+  .token.number,
+  .token.constant,
+  .token.symbol,
+  .token.deleted {
+    @apply text-green-500;
+  }
+
+  .token.selector,
+  .token.attr-name,
+  .token.string,
+  .token.char,
+  .token.builtin,
+  .token.inserted {
+    @apply text-purple;
+  }
+
+  .token.operator,
+  .token.entity,
+  .token.url,
+  .language-css .token.string,
+  .style .token.string {
+    @apply text-yellow-500;
+  }
+
+  .token.atrule,
+  .token.attr-value,
+  .token.keyword {
+    @apply text-blue-500;
+  }
+
+  .token.function,
+  .token.class-name {
+    @apply text-pink-500;
+  }
+
+  .token.regex,
+  .token.important,
+  .token.variable {
+    @apply text-yellow-500;
+  }
+
+  code[class*="language-"],
+  pre[class*="language-"] {
+    @apply text-gray-800;
+  }
+
+  .prose-lg pre {
+    @apply !border !rounded-lg;
+  }
+
+  .rehype-code-title {
+    @apply px-5 py-3 font-mono text-sm font-medium text-gray-800 !border !border-b-0 rounded-t-lg;
+  }
+
+  .rehype-code-title + pre {
+    @apply !mt-0 !rounded-t-none;
+  }
+
+  .highlight-line {
+    @apply block px-4 -mx-4 bg-gray-100 border-l-4 border-blue-500;
+  }
+}
+
+@screen lg {
+  .prose-lg .anchor {
+    margin-left: -1em;
   }
 }
