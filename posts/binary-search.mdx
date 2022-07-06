@@ -41,7 +41,7 @@ int target = 30;
 vector<int> nums = {10, 20, 30, 30, 40, 20, 10, 10, 20};
 sort(nums.begin(), nums.end());
 
-auto low = upper_bound(nums.begin(), nums.end(), target);
+auto low = lower_bound(nums.begin(), nums.end(), target);
 auto high = upper_bound(nums.begin(), nums.end(), target);
 
 cout << "lower_bound location: " << low - nums.begin() << endl;
