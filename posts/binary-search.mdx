@@ -1,6 +1,7 @@
 ---
 title: Binary Search
 date: 2022-07-05
+group: algorithms
 ---
 
 # Introduction
@@ -13,4 +14,117 @@ By cutting the search space in half on every single operation, the time complexi
 
 # Binary search on a sorted array
 
-# Binary search on monotonic functions
+We have a "sliding window" bounded by a left and right index. We shift our focus to each half the array based on a comparison to the middle value. We can do this since the array is presumed to be sorted.
+
+[Practice 1](https://leetcode.com/problems/binary-search/) (Leetcode)
+
+```cpp
+int binary_search(vector<int> nums, int target) {
+  int left = 0, right = nums.size() - 1;
+  while (left <= right) {
+    int mid = left + (right - left) / 2;
+    if (nums[mid] == target) return mid;
+    else if (nums[mid] < target) left = mid + 1;
+    else right = mid - 1;
+  }
+  return -1;
+}
+```
+
+However, sometimes you might want to use the built-in `upper_bound` and `lower_bound` functions in c++. These functions differ because upperbound returns the last index that equals the target. Lowerbound returns the first index that equals the target. Note this difference is important since the array can contain duplicate numbers.
+
+Example implementations of upperbound and lowerbound binary search functions are below for reference:
+
+```cpp
+// #include <algorithms> usage
+int target = 30;
+vector<int> nums = {10, 20, 30, 30, 40, 20, 10, 10, 20};
+sort(nums.begin(), nums.end());
+
+auto low = upper_bound(nums.begin(), nums.end(), target);
+auto high = upper_bound(nums.begin(), nums.end(), target);
+
+cout << "lower_bound location: " << low - nums.begin() << endl;
+cout << "uppder_bound location: " << high - nums.begin() << endl;
+
+// Custom implementations
+int first_occurance(vector<int> nums, int target) {
+  int left = 0, right = nums.size() - 1, ans = -1;
+  while (left <= right) {
+    int mid = left + (right - left) / 2;
+    if (nums[mid] > target) right = mid - 1;
+    else if (nums[mid] < target) left = mid + 1;
+    else {
+        ans = mid;
+        right = mid - 1;
+    }
+  }
+  return ans;
+}
+
+int last_occurance(vector<int> nums, int target) {
+  int left = 0, right = nums.size() - 1, ans = -1;
+  while (left <= right) {
+    int mid = left + (right - left) / 2;
+    if (nums[mid] > target) right = mid - 1;
+    else if (nums[mid] < target) left = mid + 1;
+    else {
+        ans = mid;
+        left = mid + 1;
+    }
+  }
+  return ans;
+}
+```
+
+[Practice 2](http://www.usaco.org/index.php?page=viewproblem2&cpid=666) (USACO)
+
+[Practice 3](https://leetcode.com/problems/search-in-rotated-sorted-array/) (Leetcode)
+
+## Binary search on monotonic functions
+
+Monotonic functions are are eighter always non-decreasing or non-increasing. You might see how this would work well with the binary search algorithm. The following template code is provided from [usaco.guide](https://usaco.guide/silver/binary-search).
+
+```cpp:code.cpp
+int first_true(int lo, int hi, function<bool(int)> f) {
+	hi++;
+	while (lo < hi) {
+		int mid = lo + (hi - lo) / 2;
+		if (f(mid)) {
+			hi = mid;
+		} else {
+			lo = mid + 1;
+		}
+	}
+	return lo;
+}
+
+int last_true(int lo, int hi, function<bool(int)> f) {
+	// if none of the values in the range work, return lo - 1
+	lo--;
+	while (lo < hi) {
+		// find the middle of the current range (rounding up)
+		int mid = lo + (hi - lo + 1) / 2;
+		if (f(mid)) {
+			// if mid works, then all numbers smaller than mid also work
+			lo = mid;
+		} else {
+			// if mid does not work, greater values would not work either
+			hi = mid - 1;
+		}
+	}
+	return lo;
+}
+
+cout << first_true(2, 10, [](int x) { return true; }) << endl;
+cout << first_true(2, 10, [](int x) { return x * x >= 30; }) << endl;
+cout << first_true(2, 10, [](int x) { return false; }) << endl;
+
+cout << last_true(2, 10, [](int x) { return true; }) << endl;
+cout << last_true(2, 10, [](int x) { return x * x <= 30; }) << endl;
+cout << last_true(2, 10, [](int x) { return false; }) << endl;
+```
+
+It's best to memorize an implementation of binary search since infinite loops/off by one errors are especially common. I find the implementations above to be my favorite.
+
+[Practice 4](https://leetcode.com/problems/first-bad-version/) (Leetcode)
