@@ -1,10 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
 
 @layer {
   :root {
     font-size: 14px;
+  }
+
+  .dotted-background {
+    background-image: radial-gradient(
+      theme("colors.gray.300") 10%,
+      theme("colors.gray.100") 10%
+    );
+    background-position: 0 0;
+    background-size: 1.75rem 1.75rem;
+  }
+
+  a {
+    @apply focus:ring focus:outline;
   }
 
   html,

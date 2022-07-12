@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Helvetica Neue", sans-serif',
+      pen: "'Nanum Pen Script', cursive",
       mono: "ui-monospace, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace",
     },
     extend: {

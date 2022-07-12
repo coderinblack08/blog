@@ -12,6 +12,7 @@ import { AnchorHTMLAttributes, DetailedHTMLProps } from "react";
 function stringToSlug(str: string) {
   return str
     .toLowerCase()
+    .replace(/\(\)/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)+/g, "");
 }
@@ -132,7 +133,7 @@ const PostLayout: NextPage<{
               ))}
             </ol>
           </div>
-          <div className="prose-lg prose-a:text-success w-full prose-p:tracking-tight prose-code:text-cyan prose-headings:text-[2rem] prose-headings:tracking-tight prose-headings:font-semibold prose-invert">
+          <div className="prose-lg prose-li:list-disc prose-a:text-success w-full prose-p:tracking-tight prose-code:text-cyan prose-h1:text-[2rem] prose-h2:text-2xl prose-headings:tracking-tight prose-headings:font-semibold prose-invert">
             <Component components={{ a: CustomLink }} />
           </div>
         </main>
