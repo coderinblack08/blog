@@ -10,11 +10,11 @@
 
   .dotted-background {
     background-image: radial-gradient(
-      theme("colors.gray.300") 10%,
+      #333333 10%,
       theme("colors.gray.100") 10%
     );
     background-position: 0 0;
-    background-size: 1.75rem 1.75rem;
+    background-size: 1.25rem 1.25rem;
   }
 
   a {

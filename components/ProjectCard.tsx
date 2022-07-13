@@ -39,7 +39,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         </button>
       </div>
       <p className="my-4 text-gray-500">{description}</p>
-      <a href={url} className="text-cyan underline underline-offset-4">
+      <a href={url} className="text-cyan font-semibold">
         {url.replace("https://", "")}
       </a>
     </div>
